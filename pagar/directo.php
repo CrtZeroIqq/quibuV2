@@ -74,13 +74,16 @@ if ($rut) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pago Directo - Quibu</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=premium2025">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 </head>
 <body>
     <div class="container fade-in">
         <div class="header">
             <div class="logo">
-                <img src="assets/images/logo-quibu.svg" alt="Quibu Logo" class="logo-img">
+                <img src="assets/images/logo.svg" alt="Quibu Logo" class="logo-img">
             </div>
             <h2 style="color: var(--primary-color); margin-bottom: 8px;">Pago Directo</h2>
             <p class="subtitle">Acceso rápido para pagadores registrados</p>

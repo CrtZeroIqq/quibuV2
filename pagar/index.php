@@ -19,7 +19,7 @@ if (!$grupo_id) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Error - Quibu</title>
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/style.css?v=premium2025">
     </head>
     <body>
         <div class="container">
@@ -53,7 +53,7 @@ try {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Grupo no encontrado - Quibu</title>
-            <link rel="stylesheet" href="assets/css/style.css">
+            <link rel="stylesheet" href="assets/css/style.css?v=premium2025">
         </head>
         <body>
             <div class="container">
@@ -126,13 +126,13 @@ function sanitize_email($email) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagar Cuotas - <?php echo htmlspecialchars($grupo['nombre_grupo']); ?> - Quibu</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=premium2025">
 </head>
 <body>
     <div class="container fade-in">
         <div class="header">
             <div class="logo">
-                <img src="assets/images/logo-quibu.svg" alt="Quibu Logo" class="logo-img">
+                <img src="assets/images/logo.svg" alt="Quibu Logo" class="logo-img">
             </div>
             <p class="subtitle">Sistema de Cobranza Automatizada</p>
         </div>

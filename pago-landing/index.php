@@ -48,7 +48,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rut'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quibu - Sistema de Cobranza Automatizada</title>
-    <link rel="stylesheet" href="/pagar/assets/css/style.css">
+    <link rel="stylesheet" href="/pagar/assets/css/style.css?v=premium2025">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <style>
         /* Estilos adicionales para la landing */
         .hero {
@@ -173,7 +176,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rut'])) {
             <!-- Landing Principal -->
             <div class="hero">
                 <div class="logo">
-                    <img src="/pagar/assets/images/logo-quibu.svg" alt="Quibu Logo" class="logo-img">
+                    <img src="/pagar/assets/images/logo.svg" alt="Quibu Logo" class="logo-img">
                 </div>
                 <h1>Bienvenido a Quibu</h1>
                 <p class="hero-subtitle">
