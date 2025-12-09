@@ -173,7 +173,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rut'])) {
         <?php if ($modo === 'landing'): ?>
             <!-- Landing Principal -->
             <div class="hero">
-                <div class="hero-icon">💰</div>
+                <div class="logo">
+                    <img src="/pagar/assets/images/logo-quibu.svg" alt="Quibu Logo" class="logo-img">
+                </div>
                 <h1>Bienvenido a Quibu</h1>
                 <p class="hero-subtitle">
                     Sistema de cobranza automatizada para grupos. Paga tus cuotas de forma rápida y segura.

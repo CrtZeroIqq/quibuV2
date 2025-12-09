@@ -6,21 +6,30 @@
 }
 
 :root {
-    --primary-color: #553BFF;
-    --success-color: #00B894;
-    --danger-color: #D63031;
-    --warning-color: #FDCB6E;
-    --light-bg: #F8F9FA;
-    --border-color: #E0E0E0;
-    --text-color: #333;
-    --text-muted: #666;
-    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.15);
+    /* Paleta de colores Quibu */
+    --primary-color: #5CB85C;       /* Verde Quibu principal */
+    --primary-hover: #4CAF50;       /* Verde hover */
+    --secondary-color: #66BB6A;     /* Verde secundario */
+    --success-color: #5CB85C;       /* Verde éxito */
+    --danger-color: #E74C3C;        /* Rojo error */
+    --warning-color: #F39C12;       /* Naranja advertencia */
+    --info-color: #3498DB;          /* Azul información */
+
+    --text-color: #2C3E50;          /* Texto principal oscuro */
+    --text-muted: #7F8C8D;          /* Texto secundario */
+    --text-light: #95A5A6;          /* Texto claro */
+
+    --light-bg: #ECF0F1;            /* Fondo claro */
+    --bg-white: #FFFFFF;            /* Fondo blanco */
+    --border-color: #BDC3C7;        /* Bordes */
+
+    --shadow: 0 2px 8px rgba(44, 62, 80, 0.1);
+    --shadow-lg: 0 4px 16px rgba(44, 62, 80, 0.15);
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #5CB85C 0%, #66BB6A 100%);
     min-height: 100vh;
     padding: 20px;
     color: var(--text-color);
@@ -43,19 +52,28 @@ body {
 }
 
 .logo {
-    width: 120px;
+    width: 180px;
+    max-width: 100%;
+    height: auto;
     margin-bottom: 16px;
+}
+
+.logo-img {
+    width: 100%;
+    height: auto;
 }
 
 h1 {
     font-size: 24px;
     color: var(--primary-color);
     margin-bottom: 8px;
+    font-weight: 700;
 }
 
 .subtitle {
     font-size: 14px;
     color: var(--text-muted);
+    font-weight: 400;
 }
 
 /* Formularios */
@@ -127,9 +145,9 @@ input.error {
 }
 
 .btn-primary:hover {
-    background: #4530dd;
+    background: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(85, 59, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(92, 184, 92, 0.4);
 }
 
 .btn-success {
@@ -138,9 +156,9 @@ input.error {
 }
 
 .btn-success:hover {
-    background: #00a383;
+    background: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
+    box-shadow: 0 4px 12px rgba(92, 184, 92, 0.4);
 }
 
 .btn:disabled {

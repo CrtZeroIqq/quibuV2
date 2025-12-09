@@ -1,0 +1,11 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Logo Play Icon Verde -->
+  <path d="M5 5 L5 55 L35 30 Z" fill="#5CB85C"/>
+  <path d="M20 15 L20 45 L45 30 Z" fill="#66BB6A" opacity="0.8"/>
+
+  <!-- Texto QUIBU -->
+  <text x="55" y="40" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#2C3E50">QUIBU</text>
+
+  <!-- Subtítulo -->
+  <text x="55" y="52" font-family="Arial, sans-serif" font-size="8" fill="#95A5A6">Organiza • Comparte • Recibe</text>
+</svg>
