@@ -1,0 +1,7 @@
+{
+    "require": {
+        "transbank/transbank-sdk": "^4.0",
+        "tecnickcom/tcpdf": "^6.10",
+        "twilio/sdk": "^8.7"
+    }
+}
