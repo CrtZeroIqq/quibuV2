@@ -91,6 +91,20 @@ location /pagar/ {
 
 ## 📖 Uso
 
+### Landing Page Principal (Página de Inicio)
+
+**URL**: `https://www.quibu.cl/pagar/pago-landing.php`
+
+**Flujo**:
+1. Usuario ingresa RUT
+2. Sistema busca si está registrado
+3a. Si existe → Redirige automáticamente a sus cuotas
+3b. Si no existe → Muestra instrucciones para obtener link del grupo
+
+**Ventaja**: Punto de entrada único y amigable para todos los usuarios.
+
+---
+
 ### Pago Agrupado (reemplaza plugins Registro + Pago Agrupado)
 
 **URL**: `https://www.quibu.cl/pagar/?grupo=ID`
@@ -108,17 +122,23 @@ location /pagar/ {
 https://www.quibu.cl/pagar/?grupo=10
 ```
 
+**Cuándo usar**: Cuando el tesorero comparte el link directo del grupo.
+
+---
+
 ### Pago Directo (reemplaza plugin Pago Directo Registrados)
 
 **URL**: `https://www.quibu.cl/pagar/directo.php`
 
 **Flujo**:
-1. Usuario ingresa RUT
+1. Usuario ingresa RUT (o llega desde landing)
 2. Sistema busca al pagador en TODOS los grupos
 3. Si existe → Muestra sus cuotas pendientes
 4. Si no existe → Mensaje de error con link al flujo normal
 
 **Ventaja**: Los usuarios recurrentes no necesitan el link del grupo.
+
+**Cuándo usar**: Para pagadores que ya están registrados y quieren acceso rápido.
 
 ## 💰 Cálculo de Fees
 
