@@ -30,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rut'])) {
         if ($pagador) {
             // Redirigir al pago directo
             $url_redirect = 'https://quibu.cl/pagar/directo.php?rut=' . urlencode($rut);
-            error_log("Pago-landing: Redirigiendo a " . $url_redirect);
             header("Location: " . $url_redirect);
             exit;
         } else {
