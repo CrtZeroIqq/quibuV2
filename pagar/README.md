@@ -171,6 +171,7 @@ Total = (Valor Cuota × Cantidad) + Fee Base + (Valor Cuota × Fee Progresivo ×
 ✅ Sesiones PHP para datos temporales
 ✅ Validación de cuotas ya pagadas antes de procesar
 ✅ Verificación de monto en backend vs frontend
+✅ Código debug removido (sin logging de datos sensibles)
 
 ### Pendientes (antes de producción)
 
