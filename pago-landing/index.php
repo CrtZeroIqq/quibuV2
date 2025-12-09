@@ -176,7 +176,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rut'])) {
             <!-- Landing Principal -->
             <div class="hero">
                 <div class="logo">
-                    <img src="/pagar/assets/images/logo.svg" alt="Quibu Logo" class="logo-img">
+                    <img src="/pagar/assets/images/logo-quibu.svg" alt="Quibu Logo" class="logo-img">
                 </div>
                 <h1>Bienvenido a Quibu</h1>
                 <p class="hero-subtitle">

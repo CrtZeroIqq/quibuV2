@@ -132,7 +132,7 @@ function sanitize_email($email) {
     <div class="container fade-in">
         <div class="header">
             <div class="logo">
-                <img src="assets/images/logo.svg" alt="Quibu Logo" class="logo-img">
+                <img src="assets/images/logo-quibu.svg" alt="Quibu Logo" class="logo-img">
             </div>
             <p class="subtitle">Sistema de Cobranza Automatizada</p>
         </div>

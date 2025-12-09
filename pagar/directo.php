@@ -83,7 +83,7 @@ if ($rut) {
     <div class="container fade-in">
         <div class="header">
             <div class="logo">
-                <img src="assets/images/logo.svg" alt="Quibu Logo" class="logo-img">
+                <img src="assets/images/logo-quibu.svg" alt="Quibu Logo" class="logo-img">
             </div>
             <h2 style="color: var(--primary-color); margin-bottom: 8px;">Pago Directo</h2>
             <p class="subtitle">Acceso rápido para pagadores registrados</p>

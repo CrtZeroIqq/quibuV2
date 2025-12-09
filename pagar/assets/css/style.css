@@ -190,8 +190,9 @@ body::after {
 }
 
 .logo-img {
-    width: 220px;
+    width: 180px;
     height: auto;
+    max-width: 90%;
 }
 
 h1, h2 {
