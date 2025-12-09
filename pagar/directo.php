@@ -10,10 +10,16 @@ require_once __DIR__ . '/../api/conexion.php';
 
 // Aceptar RUT desde POST o GET (para redirección desde pago-landing)
 $rut = isset($_POST['rut']) ? strtoupper(trim($_POST['rut'])) : '';
-$rut = $rut ?: (isset($_GET['rut']) ? strtoupper(trim($_GET['rut'])) : '');
+$rut = $rut ?: (isset($_GET['rut']) ? strtoupper(trim(urldecode($_GET['rut']))) : '');
 $pagador = null;
 $grupo = null;
 $error = null;
+$debug_info = null;
+
+// Debug temporal
+if (isset($_GET['rut'])) {
+    $debug_info = "RUT desde GET: " . $_GET['rut'] . " | RUT procesado: " . $rut;
+}
 
 if ($rut) {
     try {
@@ -85,6 +91,12 @@ if ($rut) {
 
         <?php if (!$rut || !$pagador): ?>
             <!-- Formulario de ingreso de RUT -->
+            <?php if ($debug_info): ?>
+                <div class="alert alert-info">
+                    <strong>🔍 Debug:</strong> <?php echo htmlspecialchars($debug_info); ?>
+                </div>
+            <?php endif; ?>
+
             <?php if ($error): ?>
                 <div class="alert alert-danger">
                     <strong>⚠️ Error:</strong> <?php echo htmlspecialchars($error); ?>
