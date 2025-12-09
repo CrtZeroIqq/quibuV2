@@ -103,7 +103,7 @@ function mostrar_respuesta($titulo, $contenidoHTML, $color = '#4CAF50', $icono =
             <div class='icon'>$icono</div>
             <h2>$titulo</h2>
             $contenidoHTML
-            <a href='https://www.quibu.cl/pago-landing'>Volver al inicio</a>
+            <a href='https://www.quibu.cl/pagar/pago-landing.php'>Volver al inicio</a>
         </div>
     </body>
     </html>";

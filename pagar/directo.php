@@ -8,12 +8,14 @@
 
 require_once __DIR__ . '/../api/conexion.php';
 
+// Aceptar RUT desde POST o GET (para redirección desde pago-landing)
 $rut = isset($_POST['rut']) ? strtoupper(trim($_POST['rut'])) : '';
+$rut = $rut ?: (isset($_GET['rut']) ? strtoupper(trim($_GET['rut'])) : '');
 $pagador = null;
 $grupo = null;
 $error = null;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && $rut) {
+if ($rut) {
     try {
         $pdo = getConnection();
 
