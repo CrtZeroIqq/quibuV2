@@ -1,6 +1,5 @@
 <?php
 require_once 'conexion.php';
-error_log(json_encode($_POST));
 
 // CORS
 header('Content-Type: application/json; charset=utf-8');
