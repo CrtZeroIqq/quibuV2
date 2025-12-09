@@ -21,6 +21,9 @@ Sistema de cobranza automatizada **independiente de WordPress**, que reemplaza l
 ## 📁 Estructura de Archivos
 
 ```
+/pago-landing/
+  └── index.php              # Landing page principal
+
 /pagar/
   ├── index.php              # Pago agrupado (requiere ?grupo=ID)
   ├── directo.php            # Pago directo (solo RUT)
@@ -93,7 +96,7 @@ location /pagar/ {
 
 ### Landing Page Principal (Página de Inicio)
 
-**URL**: `https://www.quibu.cl/pagar/pago-landing.php`
+**URL**: `https://quibu.cl/pago-landing/`
 
 **Flujo**:
 1. Usuario ingresa RUT

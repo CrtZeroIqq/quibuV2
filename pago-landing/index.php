@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rut'])) {
 
         if ($pagador) {
             // Redirigir al pago directo
-            header("Location: directo.php?rut=" . urlencode($rut));
+            header("Location: /pagar/directo.php?rut=" . urlencode($rut));
             exit;
         } else {
             $modo = 'grupo_no_encontrado';
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rut'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quibu - Sistema de Cobranza Automatizada</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/pagar/assets/css/style.css">
     <style>
         /* Estilos adicionales para la landing */
         .hero {
@@ -271,7 +271,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rut'])) {
             </div>
 
             <div style="margin-top: 32px; text-align: center;">
-                <a href="pago-landing.php" class="btn btn-primary">
+                <a href="/pago-landing/" class="btn btn-primary">
                     Intentar con otro RUT
                 </a>
             </div>
@@ -281,13 +281,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rut'])) {
         <div class="footer">
             <p>Powered by <a href="https://www.quibu.cl">Quibu</a> - Sistema de Cobranza Automatizada</p>
             <p style="margin-top: 8px; font-size: 12px;">
-                <a href="directo.php">Acceso Directo</a> ·
+                <a href="/pagar/directo.php">Acceso Directo</a> ·
                 <a href="#">Ayuda</a> ·
                 <a href="#">Términos y Condiciones</a>
             </p>
         </div>
     </div>
 
-    <script src="assets/js/app.js"></script>
+    <script src="/pagar/assets/js/app.js"></script>
 </body>
 </html>
