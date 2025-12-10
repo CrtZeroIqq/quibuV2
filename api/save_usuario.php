@@ -1,7 +1,6 @@
 <?php
 // save_usuario.php
 require_once 'conexion.php';
-error_log(json_encode($_POST));
 
 // CORS & JSON
 header('Content-Type: application/json; charset=utf-8');

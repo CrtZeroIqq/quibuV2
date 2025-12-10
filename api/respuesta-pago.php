@@ -1,6 +1,6 @@
 <?php
-require_once dirname(__FILE__, 2) . '/wp-load.php';
-require_once '/var/www/html/vendor/autoload.php';
+require_once __DIR__ . '/conexion.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Transbank\Webpay\WebpayPlus\Transaction;
 use Transbank\Webpay\Options;
@@ -26,7 +26,7 @@ $creds = $_SESSION['quibu_pago_credentials'];
 $options = new Options(
     $creds['api_key'],
     $creds['commerce_code'],
-    Options::ENVIRONMENT_INTEGRATION
+    $creds['environment'] ?? Options::ENVIRONMENT_INTEGRATION
 );
 
 $transaction = new Transaction($options);
@@ -103,7 +103,7 @@ function mostrar_respuesta($titulo, $contenidoHTML, $color = '#4CAF50', $icono =
             <div class='icon'>$icono</div>
             <h2>$titulo</h2>
             $contenidoHTML
-            <a href='https://www.quibu.cl/pago-landing'>Volver al inicio</a>
+            <a href='https://quibu.cl/pago-landing/'>Volver al inicio</a>
         </div>
     </body>
     </html>";
@@ -128,36 +128,41 @@ try {
 
         $datos     = $_SESSION['quibu_pago'];
         $cuotas    = $datos['cuotas'];
-        $rut       = sanitize_text_field($datos['rut']);
+        $rut       = htmlspecialchars(trim($datos['rut']), ENT_QUOTES, 'UTF-8');
         $grupo_id  = intval($datos['grupo_id']);
 
-        global $wpdb;
-        $tabla_pagos     = $wpdb->prefix . 'pagos_cuotas';
-        $tabla_pagadores = $wpdb->prefix . 'pagadores';
-        $tabla_cuotas    = $wpdb->prefix . 'cuotas_definidas';
+        $pdo = getConnection();
 
-        $id_pagador = $wpdb->get_var(
-            $wpdb->prepare("SELECT id FROM $tabla_pagadores WHERE rut = %s AND id_grupo = %d", $rut, $grupo_id)
-        );
+        // Obtener ID del pagador
+        $stmt = $pdo->prepare("SELECT id FROM wp_pagadores WHERE rut = ? AND id_grupo = ?");
+        $stmt->execute([$rut, $grupo_id]);
+        $id_pagador = $stmt->fetchColumn();
+
+        if (!$id_pagador) {
+            mostrar_respuesta("❌ Error", "<p>No se pudo encontrar el pagador en la base de datos.</p>", "#f44336", "⚠️");
+            exit;
+        }
 
         // Calcular monto pagado por cada cuota (división equitativa del total pagado)
-$cantidad_cuotas = count($cuotas);
-$monto_individual = round($amount / $cantidad_cuotas); // aseguramos enteros redondeando
+        $cantidad_cuotas = count($cuotas);
+        $monto_individual = round($amount / $cantidad_cuotas);
 
-foreach ($cuotas as $id_cuota) {
-    $wpdb->insert(
-        $tabla_pagos,
-        [
-            'id_pagador'     => $id_pagador,
-            'rut'            => $rut,
-            'id_cuota'       => $id_cuota,
-            'monto_pagado'   => $monto_individual,
-            'id_transaccion' => $transbank_token,
-            'metodo_pago'    => $payment_type,
-        ],
-        ['%d', '%s', '%d', '%d', '%s', '%s']
-    );
-}
+        // Insertar pagos
+        $stmt = $pdo->prepare("
+            INSERT INTO wp_pagos_cuotas (id_pagador, rut, id_cuota, monto_pagado, id_transaccion, metodo_pago)
+            VALUES (?, ?, ?, ?, ?, ?)
+        ");
+
+        foreach ($cuotas as $id_cuota) {
+            $stmt->execute([
+                $id_pagador,
+                $rut,
+                $id_cuota,
+                $monto_individual,
+                $transbank_token,
+                $payment_type
+            ]);
+        }
 
 
         // Limpiar sesión
